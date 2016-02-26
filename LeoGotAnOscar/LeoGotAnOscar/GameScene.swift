@@ -19,7 +19,9 @@ class GameScene: SKScene {
     var Ground = SKSpriteNode()
     var LeoOnTheRun = SKSpriteNode()
     var OscarCup = SKSpriteNode()
-    
+    var wallPair = SKNode()
+    var moveAndRemove = SKAction()
+    var isTheGameStarted = Bool()
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -63,10 +65,6 @@ class GameScene: SKScene {
         self.addChild(LeoOnTheRun)
        
         
-        
-        createWalls()
-        
-        
     
     }
     
@@ -74,8 +72,36 @@ class GameScene: SKScene {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */
-        LeoOnTheRun.physicsBody?.velocity = CGVectorMake(0, 0)
-        LeoOnTheRun.physicsBody?.applyImpulse(CGVectorMake(0, 90))
+        
+        if isTheGameStarted == true {
+            
+            let spawn = SKAction.runBlock({
+                () in
+                
+                self.createWalls()
+                
+            })
+            
+            let delay = SKAction.waitForDuration(2.0)
+            let spawnDelay = SKAction.sequence([spawn, delay])
+            let spawnDelayForever = SKAction.repeatActionForever(spawnDelay)
+            self.runAction(spawnDelayForever)
+            
+            let distance = CGFloat(self.frame.width + wallPair.frame.width)
+            let movePipes = SKAction.moveByX(-distance, y: 0, duration: NSTimeInterval(0.01 * distance))
+            let removePipes = SKAction.removeFromParent()
+            
+            LeoOnTheRun.physicsBody?.velocity = CGVectorMake(0, 0)
+            LeoOnTheRun.physicsBody?.applyImpulse(CGVectorMake(0, 90))
+            
+        }
+        else{
+            LeoOnTheRun.physicsBody?.velocity = CGVectorMake(0, 0)
+            LeoOnTheRun.physicsBody?.applyImpulse(CGVectorMake(0, 90))
+            
+        }
+        
+
     
     }
     
@@ -83,7 +109,8 @@ class GameScene: SKScene {
     
     
     func createWalls(){
-        let wallPair = SKNode()
+        
+        wallPair = SKNode()
         
         let topWall = SKSpriteNode(imageNamed: "Wall")
         let btmWall = SKSpriteNode(imageNamed: "Wall")
