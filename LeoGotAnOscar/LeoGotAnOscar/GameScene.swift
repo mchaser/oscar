@@ -73,7 +73,7 @@ class GameScene: SKScene {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */
         
-        if isTheGameStarted == true {
+        if isTheGameStarted == false {
             
             let spawn = SKAction.runBlock({
                 () in
@@ -82,7 +82,7 @@ class GameScene: SKScene {
                 
             })
             
-            let delay = SKAction.waitForDuration(2.0)
+            let delay = SKAction.waitForDuration(1.5)
             let spawnDelay = SKAction.sequence([spawn, delay])
             let spawnDelayForever = SKAction.repeatActionForever(spawnDelay)
             self.runAction(spawnDelayForever)
@@ -90,6 +90,7 @@ class GameScene: SKScene {
             let distance = CGFloat(self.frame.width + wallPair.frame.width)
             let movePipes = SKAction.moveByX(-distance, y: 0, duration: NSTimeInterval(0.01 * distance))
             let removePipes = SKAction.removeFromParent()
+            moveAndRemove = SKAction.sequence([movePipes, removePipes])
             
             LeoOnTheRun.physicsBody?.velocity = CGVectorMake(0, 0)
             LeoOnTheRun.physicsBody?.applyImpulse(CGVectorMake(0, 90))
