@@ -75,12 +75,16 @@ class GameScene: SKScene {
         
         if isTheGameStarted == false {
             
+            print("\(isTheGameStarted)")
+            
             let spawn = SKAction.runBlock({
                 () in
                 
                 self.createWalls()
                 
             })
+            
+            isTheGameStarted = true
             
             let delay = SKAction.waitForDuration(1.5)
             let spawnDelay = SKAction.sequence([spawn, delay])
