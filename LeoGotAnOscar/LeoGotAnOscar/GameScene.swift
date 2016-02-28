@@ -75,7 +75,8 @@ class GameScene: SKScene {
         
         if isTheGameStarted == false {
             
-            print("\(isTheGameStarted)")
+            isTheGameStarted =  true
+            
             
             let spawn = SKAction.runBlock({
                 () in
@@ -84,27 +85,25 @@ class GameScene: SKScene {
                 
             })
             
-            isTheGameStarted = true
-            
             let delay = SKAction.waitForDuration(1.5)
-            let spawnDelay = SKAction.sequence([spawn, delay])
-            let spawnDelayForever = SKAction.repeatActionForever(spawnDelay)
+            let SpawnDelay = SKAction.sequence([spawn, delay])
+            let spawnDelayForever = SKAction.repeatActionForever(SpawnDelay)
             self.runAction(spawnDelayForever)
             
+            
             let distance = CGFloat(self.frame.width + wallPair.frame.width)
-            let movePipes = SKAction.moveByX(-distance, y: 0, duration: NSTimeInterval(0.01 * distance))
+            let movePipes = SKAction.moveByX(-distance - 50, y: 0, duration: NSTimeInterval(0.008 * distance))
             let removePipes = SKAction.removeFromParent()
             moveAndRemove = SKAction.sequence([movePipes, removePipes])
             
             LeoOnTheRun.physicsBody?.velocity = CGVectorMake(0, 0)
             LeoOnTheRun.physicsBody?.applyImpulse(CGVectorMake(0, 90))
-            
         }
         else{
-            LeoOnTheRun.physicsBody?.velocity = CGVectorMake(0, 0)
-            LeoOnTheRun.physicsBody?.applyImpulse(CGVectorMake(0, 90))
-            
-        }
+       
+                LeoOnTheRun.physicsBody?.velocity = CGVectorMake(0, 0)
+                LeoOnTheRun.physicsBody?.applyImpulse(CGVectorMake(0, 90))
+            }
         
 
     
@@ -150,7 +149,7 @@ class GameScene: SKScene {
         
         
     }
-   
+    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
         
