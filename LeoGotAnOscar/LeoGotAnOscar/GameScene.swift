@@ -109,7 +109,6 @@ class GameScene: SKScene {
     }
     
     
-    
     func createWalls(){
         
         wallPair = SKNode()
