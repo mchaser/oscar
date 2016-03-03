@@ -105,7 +105,6 @@ class GameScene: SKScene {
                 LeoOnTheRun.physicsBody?.applyImpulse(CGVectorMake(0, 90))
             }
         
-    
     }
     
     
