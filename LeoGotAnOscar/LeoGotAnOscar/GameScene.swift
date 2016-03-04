@@ -143,7 +143,6 @@ class GameScene: SKScene {
         
         self.addChild(wallPair)
         
-        
     }
     
     override func update(currentTime: CFTimeInterval) {
