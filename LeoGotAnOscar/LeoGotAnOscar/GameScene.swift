@@ -63,7 +63,6 @@ class GameScene: SKScene {
         LeoOnTheRun.physicsBody?.dynamic = true
         
         self.addChild(LeoOnTheRun)
-       
         
     
     }
