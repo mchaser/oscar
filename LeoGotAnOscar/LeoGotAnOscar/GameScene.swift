@@ -45,7 +45,6 @@ class GameScene: SKScene {
         Ground.physicsBody?.affectedByGravity = false
         Ground.physicsBody?.dynamic = false
         
-        
     
         self.addChild(Ground)
         
