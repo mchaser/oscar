@@ -134,7 +134,6 @@ class GameScene: SKScene {
         btmWall.physicsBody?.dynamic = false
         btmWall.physicsBody?.affectedByGravity = false
         
-        
         wallPair.addChild(topWall)
         wallPair.addChild(btmWall)
         
