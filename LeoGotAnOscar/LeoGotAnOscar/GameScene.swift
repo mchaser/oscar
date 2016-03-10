@@ -73,7 +73,6 @@ class GameScene: SKScene {
             
             isTheGameStarted =  true
             
-            
             let spawn = SKAction.runBlock({
                 () in
                 
