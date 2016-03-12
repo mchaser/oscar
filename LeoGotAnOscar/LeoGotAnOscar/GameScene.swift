@@ -99,7 +99,6 @@ class GameScene: SKScene {
                 LeoOnTheRun.physicsBody?.velocity = CGVectorMake(0, 0)
                 LeoOnTheRun.physicsBody?.applyImpulse(CGVectorMake(0, 90))
             }
-        
     }
     
     
