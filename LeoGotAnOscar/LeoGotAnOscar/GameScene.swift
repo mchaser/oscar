@@ -31,7 +31,6 @@ class GameScene: SKScene {
         OscarCup.position = CGPoint(x: self.frame.width / 2 + 100, y: self.frame.height / 2)
         OscarCup.zPosition = 3
         self.addChild(OscarCup)
-    
         
         Ground = SKSpriteNode(imageNamed: "Ground")
         Ground.setScale(0.5)
