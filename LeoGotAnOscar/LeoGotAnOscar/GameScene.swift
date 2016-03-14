@@ -84,7 +84,6 @@ class GameScene: SKScene {
             let spawnDelayForever = SKAction.repeatActionForever(SpawnDelay)
             self.runAction(spawnDelayForever)
             
-            
             let distance = CGFloat(self.frame.width + wallPair.frame.width)
             let movePipes = SKAction.moveByX(-distance - 50, y: 0, duration: NSTimeInterval(0.008 * distance))
             let removePipes = SKAction.removeFromParent()
