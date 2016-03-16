@@ -43,7 +43,6 @@ class GameScene: SKScene {
         Ground.physicsBody?.contactTestBitMask = PhysicsCategory.LeoOnTheRun
         Ground.physicsBody?.affectedByGravity = false
         Ground.physicsBody?.dynamic = false
-        
     
         self.addChild(Ground)
         
