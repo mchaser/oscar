@@ -46,7 +46,6 @@ class GameScene: SKScene {
     
         self.addChild(Ground)
         
-        
         LeoOnTheRun = SKSpriteNode(imageNamed: "LeoOnTheRun")
         LeoOnTheRun.size = CGSize(width: 60, height: 70)
         LeoOnTheRun.position = CGPoint(x: self.frame.width / 2 - LeoOnTheRun.frame.width, y: self.frame.height / 2)
