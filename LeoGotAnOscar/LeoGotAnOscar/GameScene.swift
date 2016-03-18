@@ -62,7 +62,6 @@ class GameScene: SKScene {
         
     }
     
-    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */
         
