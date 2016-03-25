@@ -32,7 +32,6 @@ class GameViewController: UIViewController {
 
 
 
-
     override func shouldAutorotate() -> Bool {
         return true
     }
